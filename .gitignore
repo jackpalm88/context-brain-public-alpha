@@ -1,0 +1,18 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Local/editor/OS noise
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node cache (if ever introduced)
+node_modules/

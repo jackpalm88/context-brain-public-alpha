@@ -1,0 +1,155 @@
+openapi: 3.1.0
+info:
+  title: Context Brain GPT Actions Public API
+  version: v1-public-alpha
+  description: >-
+    Conservative public-alpha, read-only GPT Actions surface.
+    This schema is the public contract target for GPT Actions v1.
+    openapi.json remains internal/generated reference.
+servers:
+  - url: https://api.example.com
+paths:
+  /health:
+    get:
+      operationId: health_check
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /actions/query-memory:
+    post:
+      operationId: query_memory
+      summary: Query semantic memory (read-only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryMemoryRequest"
+      responses:
+        "200":
+          description: Query response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /actions/search-raw-chunks:
+    post:
+      operationId: search_raw_chunks
+      summary: Search raw chunks (read-only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchRawChunksRequest"
+      responses:
+        "200":
+          description: Search response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /actions/list-hubs-json:
+    post:
+      operationId: list_hubs_json
+      summary: List hubs as structured JSON (read-only)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ListHubsJsonRequest"
+      responses:
+        "200":
+          description: Hubs list response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /actions/get-hub-json:
+    post:
+      operationId: get_hub_json
+      summary: Get hub details as structured JSON (read-only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetHubJsonRequest"
+      responses:
+        "200":
+          description: Hub response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /actions/get-content-by-id:
+    post:
+      operationId: get_content_by_id
+      summary: Get content text by content_id (read-only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetContentByIdRequest"
+      responses:
+        "200":
+          description: Content response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  schemas:
+    QueryMemoryRequest:
+      type: object
+      properties:
+        query:
+          type: string
+      required: [query]
+      additionalProperties: false
+    SearchRawChunksRequest:
+      type: object
+      properties:
+        query:
+          type: string
+        limit:
+          type: integer
+          default: 10
+        only_clean:
+          type: boolean
+          default: true
+      required: [query]
+      additionalProperties: false
+    ListHubsJsonRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          default: active
+      additionalProperties: false
+    GetHubJsonRequest:
+      type: object
+      properties:
+        hub_id:
+          type: string
+      required: [hub_id]
+      additionalProperties: false
+    GetContentByIdRequest:
+      type: object
+      properties:
+        content_id:
+          type: string
+      required: [content_id]
+      additionalProperties: false
