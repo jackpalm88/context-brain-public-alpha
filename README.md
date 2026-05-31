@@ -25,6 +25,14 @@ Context Brain is not just a vector-memory store. Its core focus is governed agen
 - Retrieval discipline, not just storage
 - Human-gated multi-agent operating model
 
+## Governed agent memory flow
+
+![Context Brain governed memory flow](docs/assets/context-brain-governed-memory-flow.png)
+
+## Integration surfaces
+
+![Context Brain integration surfaces](docs/assets/context-brain-integration-surfaces.png)
+
 ## What this does not claim
 
 - This does not claim the public release is fully ready for production.
