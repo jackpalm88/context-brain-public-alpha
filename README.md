@@ -5,6 +5,8 @@ Context Brain is a memory + knowledge-graph backend for AI agents.
 ## Public-alpha scope
 
 This repository is currently in **public alpha**. The public surface is intentionally conservative.
+This first public-alpha baseline is documentation/schema-only: it includes public docs, MCP documentation, and a curated read-only GPT Actions schema, but not the full Context Brain runtime/source distribution.
+LLM providers are configuration-driven via environment variables in supported runtime paths; no single provider is implied as universally mandatory by this baseline.
 
 - GPT Actions v1 is **read-only**.
 - Public GPT Actions schema is maintained separately from internal OpenAPI.
