@@ -12,6 +12,19 @@ LLM providers are configuration-driven via environment variables in supported ru
 - Public GPT Actions schema is maintained separately from internal OpenAPI.
 - openapi.json should be treated as an internal/generated reference for maintainers.
 
+## What makes Context Brain different
+
+Context Brain is not just a vector-memory store. Its core focus is governed agent memory: helping agents decide what should be saved, how it should be linked, how contradictions should be represented, and how future agents can retrieve evidence without inheriting the full chat history.
+
+- Memory-write governance
+- Hub-linked knowledge organization
+- Decision memory and lineage
+- Counterfinding and scope refinement
+- Current-state anchors
+- Agent execution evidence
+- Retrieval discipline, not just storage
+- Human-gated multi-agent operating model
+
 ## What this does not claim
 
 - This does not claim the public release is fully ready for production.
